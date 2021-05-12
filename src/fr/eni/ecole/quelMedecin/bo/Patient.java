@@ -19,8 +19,10 @@ public class Patient {
     private long numSecuriteSociale;
     private LocalDate dateDeNaissance;
     private String commentaires;
+    private Adresse adresse;
+    private Creneau creneau;
 
-    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numSecuriteSociale, LocalDate dateDeNaissance, String commentaires) {
+    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numSecuriteSociale, LocalDate dateDeNaissance, String commentaires, Adresse adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
@@ -28,19 +30,21 @@ public class Patient {
         this.numSecuriteSociale = numSecuriteSociale;
         this.dateDeNaissance = dateDeNaissance;
         this.commentaires = commentaires;
+        this.adresse = adresse;
     }
 
     public void afficher() {
         System.out.printf("%s %s%nTéléphone : %s%n" +
                 "Sexe : %s%n" +
                 "Numéro de sécurité Sociale : %d%n" +
-                "Date de Naissance : %s%n " +
-                "Commentaires : %s%n",
+                "Date de Naissance : %s%n" +
+                "Commentaires : %s%nAdresse : ",
                 this.nom.toUpperCase(), this.prenom, this.numeroDeTelephone,
                 this.sexe == 'F' ? "Féminin" : "Masculin",
                 this.numSecuriteSociale,
                 this.dateDeNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)),
                 this.commentaires == null ? "[Aucun commentaire]" : this.commentaires);
+        this.adresse.afficher();
         // Pour la dernier ligne la 1ère partie pose une question, si oui et ensuite si non
     }
 

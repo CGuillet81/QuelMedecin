@@ -11,9 +11,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public class Patient {
-    private String nom;
-    private String prenom;
+public class Patient extends Personne {
+    protected String nom;
+    protected String prenom;
     private String numeroDeTelephone;
     private char sexe;
     private long numSecuriteSociale;
